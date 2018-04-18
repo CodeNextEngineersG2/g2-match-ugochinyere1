@@ -171,14 +171,12 @@ function addAnimations(){
 var animations= [boltAnimation,boltAnimation,cloudAnimation,cloudAnimation,sunAnimation,sunAnimation,moonAnimation,moonAnimation,smileyAnimation,smileyAnimation];
 for (var i = 0; i < spriteArray.length; i++) {
   
-  spriteArray[i].addAnimation("",);
+  spriteArray[i].addAnimation("flip",animations[i]);
+  spriteArray[i].animation.frameDelay = 10;
+  animation.looping=false;
+  animation.playing=false;
 
-  //addAnimation(sprite.animation[i]);
-  //sprite.animation.frameDelay = 10;
 }
-
-
-
 
 }
 
@@ -191,6 +189,35 @@ for (var i = 0; i < spriteArray.length; i++) {
  * function calls activateSprite(s) with each sprite as input.
  */
 
+function placeSprites(){
+
+for (var i = 0; i < spriteArray.length; i++) {
+
+ spriteArray[i].position.x=spriteX;
+ spriteArray[i].position.y=spriteY;
+  spriteArray[i]( spriteX,spriteY);
+
+if ((i + 1)%6== 0) {
+   spriteX=70;
+    spriteY += spriteHeight + 10;
+}
+  else {
+ spriteX+= spriteWidth + 10; 
+   
+  }
+
+
+}
+
+
+}
+
+/*
+ * function placeSprites()
+ * Places all sprites in spriteArray on the game screen, according to any
+ * pattern you like. For starters, try arranging the sprites in a simple
+ * grid-like pattern (e.g., 2x2 if you only have four sprites).
+ */
 
 /*
  * function loadSounds()
@@ -242,12 +269,6 @@ for (var i = 0; i < spriteArray.length; i++) {
 
 
 
-/*
- * function placeSprites()
- * Places all sprites in spriteArray on the game screen, according to any
- * pattern you like. For starters, try arranging the sprites in a simple
- * grid-like pattern (e.g., 2x2 if you only have four sprites).
- */
 
 
 /*
